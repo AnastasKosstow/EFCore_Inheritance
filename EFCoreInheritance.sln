@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreInheritance.Persistence", "src\EFCoreInheritance.Persistence\EFCoreInheritance.Persistence.csproj", "{37C1AD7F-75D5-4C1A-8985-D7E84D6F792C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreInheritance.Web", "src\EFCoreInheritance.Web\EFCoreInheritance.Web.csproj", "{F37502F1-FB77-4349-AF16-81D5FEE6563B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37C1AD7F-75D5-4C1A-8985-D7E84D6F792C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37C1AD7F-75D5-4C1A-8985-D7E84D6F792C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37C1AD7F-75D5-4C1A-8985-D7E84D6F792C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37C1AD7F-75D5-4C1A-8985-D7E84D6F792C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F37502F1-FB77-4349-AF16-81D5FEE6563B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F37502F1-FB77-4349-AF16-81D5FEE6563B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F37502F1-FB77-4349-AF16-81D5FEE6563B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F37502F1-FB77-4349-AF16-81D5FEE6563B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A0E3FDB1-3B61-425E-8102-7A9214403E1D}
+	EndGlobalSection
+EndGlobal
