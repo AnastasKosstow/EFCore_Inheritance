@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreInheritance.Persisten
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreInheritance.Web", "src\EFCoreInheritance.Web\EFCoreInheritance.Web.csproj", "{F37502F1-FB77-4349-AF16-81D5FEE6563B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreInheritance.Persistence.Models", "EFCoreInheritance.Persistence.Models\EFCoreInheritance.Persistence.Models.csproj", "{F771663A-0E0A-4316-A139-1F5F749449CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F37502F1-FB77-4349-AF16-81D5FEE6563B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F37502F1-FB77-4349-AF16-81D5FEE6563B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F37502F1-FB77-4349-AF16-81D5FEE6563B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F771663A-0E0A-4316-A139-1F5F749449CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F771663A-0E0A-4316-A139-1F5F749449CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F771663A-0E0A-4316-A139-1F5F749449CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F771663A-0E0A-4316-A139-1F5F749449CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
