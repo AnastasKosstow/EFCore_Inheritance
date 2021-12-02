@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreInheritance.Web.Controllers
 {
+    [Route("[controller]")]
+    [ApiController]
     public class BlogController : ControllerBase
     {
         private readonly EFCoreInheritanceDbContext _context;
