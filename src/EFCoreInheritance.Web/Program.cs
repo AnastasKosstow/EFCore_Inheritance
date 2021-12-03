@@ -1,9 +1,19 @@
-using EFCoreInheritance.Persistence.TablePerHierarchy;
-using Microsoft.EntityFrameworkCore;
+using EFCoreInheritance.Web.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-AddTablePerHierarchyDbContext();
+IServiceCollection services = builder.Services;
+IConfiguration configuration = builder.Configuration;
+
+services.UseDbContext(
+    configuration, 
+    config =>
+    {
+        // Use only one!!!
+
+        config.UseTablePerHierarchyDbContext();
+        //config.UseTablePerTypeDbContext();
+    });
 
 builder.Services.AddControllers();
 var app = builder.Build();
@@ -13,10 +23,3 @@ app.UseAuthorization();
 app.MapControllers();
 app.Run();
 
-void AddTablePerHierarchyDbContext()
-{
-    builder.Services.AddDbContext<TablePerHierarchyDbContext>(config =>
-    {
-        config.UseSqlServer(builder.Configuration.GetConnectionString("TPH_Connection"));
-    });
-}
