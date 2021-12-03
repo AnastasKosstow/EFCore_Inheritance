@@ -11,8 +11,8 @@ services.UseDbContext(
     {
         // Use only one!!!
 
-        config.UseTablePerHierarchyDbContext();
-        //config.UseTablePerTypeDbContext();
+        //config.UseTablePerHierarchyDbContext();
+        config.UseTablePerTypeDbContext();
     });
 
 builder.Services.AddControllers();

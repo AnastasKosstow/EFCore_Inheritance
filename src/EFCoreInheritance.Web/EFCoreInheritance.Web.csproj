@@ -15,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EFCoreInheritance.Persistence.Models\EFCoreInheritance.Persistence.Models.csproj" />
-    <ProjectReference Include="..\EFCoreInheritance.Persistence\EFCoreInheritance.Persistence.csproj" />
+    <ProjectReference Include="..\EFCoreInheritance.Persistence.TablePerHierarchy\EFCoreInheritance.Persistence.TablePerHierarchy.csproj" />
+    <ProjectReference Include="..\EFCoreInheritance.Persistence.TablePerType\EFCoreInheritance.Persistence.TablePerType.csproj" />
   </ItemGroup>
 
 </Project>

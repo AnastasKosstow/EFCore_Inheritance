@@ -1,4 +1,4 @@
-﻿using EFCoreInheritance.Persistence.Models;
+﻿using EFCoreInheritance.Persistence.TablePerHierarchy.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreInheritance.Persistence.TablePerHierarchy;
