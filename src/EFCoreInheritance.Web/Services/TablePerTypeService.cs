@@ -17,6 +17,11 @@ namespace EFCoreInheritance.Web.Services
         public async Task<TResponseModel> GetResult<TResponseModel>(CancellationToken cancellationToken) 
             where TResponseModel : class, new()
         {
+            if (!_context.Users.Any())
+            {
+                throw new ArgumentNullException("Insert some data into db!");
+            }
+
             var billingInfo = (await _context
                 .Users?
                 .FirstOrDefaultAsync(cancellationToken))
