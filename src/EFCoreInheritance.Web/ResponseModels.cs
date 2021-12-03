@@ -7,6 +7,7 @@
 
     public class TablePerTypeResponseModel
     {
-
+        public object Info { get; set; }
+        public string TypeName { get; set; }
     }
 }

@@ -10,14 +10,14 @@ public class TablePerTypeDbContext : DbContext
     {
     }
 
-    public DbSet<User>? Users { get; set; } = default;
-    public DbSet<BillingDetail>? BillingDetails { get; set; } = default;
+    public DbSet<User> Users { get; set; } = default;
+    public DbSet<BillingDetail> BillingDetails { get; set; } = default;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<BankAccount>().ToTable("BankAccounts");
         modelBuilder.Entity<CreditCard>().ToTable("CreditCards");
-
+        
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(TablePerTypeDbContext).Assembly);
     }
 }

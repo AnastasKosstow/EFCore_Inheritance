@@ -1,5 +1,4 @@
-﻿using EFCoreInheritance.ContextAccessor;
-using EFCoreInheritance.Persistence.TablePerHierarchy;
+﻿using EFCoreInheritance.Persistence.TablePerHierarchy;
 using EFCoreInheritance.Web.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
 

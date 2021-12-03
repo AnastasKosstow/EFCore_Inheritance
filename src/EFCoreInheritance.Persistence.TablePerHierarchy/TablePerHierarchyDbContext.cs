@@ -10,7 +10,7 @@ public class TablePerHierarchyDbContext : DbContext
     {
     }
 
-    public DbSet<Blog>? Blogs { get; set; } = default;
+    public DbSet<Blog> Blogs { get; set; } = default;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
