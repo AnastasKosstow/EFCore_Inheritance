@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EFCoreInheritance.ContextAccessor\EFCoreInheritance.ContextAccessor.csproj" />
     <ProjectReference Include="..\EFCoreInheritance.Persistence.TablePerHierarchy\EFCoreInheritance.Persistence.TablePerHierarchy.csproj" />
     <ProjectReference Include="..\EFCoreInheritance.Persistence.TablePerType\EFCoreInheritance.Persistence.TablePerType.csproj" />
   </ItemGroup>

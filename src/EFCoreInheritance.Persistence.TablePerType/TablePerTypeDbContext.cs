@@ -10,6 +10,7 @@ public class TablePerTypeDbContext : DbContext
     {
     }
 
+    public DbSet<User>? Users { get; set; } = default;
     public DbSet<BillingDetail>? BillingDetails { get; set; } = default;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
