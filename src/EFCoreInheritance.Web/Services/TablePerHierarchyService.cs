@@ -1,4 +1,5 @@
 ﻿using EFCoreInheritance.Persistence.TablePerHierarchy;
+using EFCoreInheritance.Persistence.TablePerHierarchy.Models;
 using EFCoreInheritance.Web.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,7 +19,13 @@ namespace EFCoreInheritance.Web.Services
         {
             if (!_context.Blogs.Any())
             {
-                throw new ArgumentNullException("Insert some data into db!");
+                Blog blogToAdd = new EFBlog
+                {
+                    Discriminator = BlogType.EF
+                };
+
+                _context.Blogs.Add(blogToAdd);
+                _context.SaveChanges();
             }
 
             var blog = await _context

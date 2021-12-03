@@ -17,7 +17,7 @@ public class TablePerTypeDbContext : DbContext
     {
         modelBuilder.Entity<BankAccount>().ToTable("BankAccounts");
         modelBuilder.Entity<CreditCard>().ToTable("CreditCards");
-
+        
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(TablePerTypeDbContext).Assembly);
     }
 }

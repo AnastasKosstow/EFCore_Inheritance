@@ -19,7 +19,18 @@ namespace EFCoreInheritance.Web.Services
         {
             if (!_context.Users.Any())
             {
-                throw new ArgumentNullException("Insert some data into db!");
+                _context.Users.Add(new User
+                {
+                    FirstName = "A",
+                    LastName = "K",
+                    BillingInfo = new BankAccount()
+                    {
+                        Number = "9876543210",
+                        Owner = "A/K",
+                        BankName = "theBank",
+                    },
+                });
+                _context.SaveChanges();
             }
 
             var billingInfo = (await _context
