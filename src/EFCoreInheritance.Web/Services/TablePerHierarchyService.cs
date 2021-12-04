@@ -1,5 +1,6 @@
 ﻿using EFCoreInheritance.Persistence.TablePerHierarchy;
 using EFCoreInheritance.Persistence.TablePerHierarchy.Models;
+using EFCoreInheritance.Web.Factory;
 using EFCoreInheritance.Web.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,7 @@ namespace EFCoreInheritance.Web.Services
     public class TablePerHierarchyService : ITablePerHierarchyService
     {
         private readonly TablePerHierarchyDbContext _context;
+        private readonly IResponseModelFactory _responseModelFactory;
 
         public TablePerHierarchyService(TablePerHierarchyDbContext context)
         {

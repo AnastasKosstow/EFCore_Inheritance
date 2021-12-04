@@ -1,4 +1,5 @@
 using EFCoreInheritance.Web.Extensions;
+using EFCoreInheritance.Web.Factory;
 using EFCoreInheritance.Web.Services;
 using EFCoreInheritance.Web.Services.Abstractions;
 
@@ -23,6 +24,8 @@ services.UseDbContext(
 services
     .AddScoped<ITablePerHierarchyService, TablePerHierarchyService>()
     .AddScoped<ITablePerTypeService, TablePerTypeService>();
+services
+    .AddSingleton<IResponseModelFactory, ResponseModelFactory>();
 
 builder.Services.AddControllers();
 var app = builder.Build();

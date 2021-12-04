@@ -1,11 +1,15 @@
 ﻿namespace EFCoreInheritance.Web
 {
-    public class TablePerHierarchyResponseModel
+    public interface IResponse
+    {
+    }
+
+    public class TablePerHierarchyResponseModel : IResponse
     {
         public object Result { get; set; }
     }
 
-    public class TablePerTypeResponseModel
+    public class TablePerTypeResponseModel : IResponse
     {
         public object Info { get; set; }
         public string TypeName { get; set; }

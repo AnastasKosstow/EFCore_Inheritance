@@ -1,5 +1,6 @@
 ﻿using EFCoreInheritance.Persistence.TablePerType;
 using EFCoreInheritance.Persistence.TablePerType.Models;
+using EFCoreInheritance.Web.Factory;
 using EFCoreInheritance.Web.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,6 +9,7 @@ namespace EFCoreInheritance.Web.Services
     public class TablePerTypeService : ITablePerTypeService
     {
         private readonly TablePerTypeDbContext _context;
+        private readonly IResponseModelFactory _responseModelFactory;
 
         public TablePerTypeService(TablePerTypeDbContext context)
         {
