@@ -33,10 +33,19 @@ namespace EFCoreInheritance.Web.Services
                 _context.SaveChanges();
             }
 
+            // Get all by Type
+            var bankAccouns = await _context.Users
+                .OfType<BankAccount>()
+                .ToListAsync(cancellationToken);
+
+            // Get single as parent object, or cast it
             var billingInfo = (await _context
                 .Users?
                 .FirstOrDefaultAsync(cancellationToken))
-                .BillingInfo as BankAccount;
+                .BillingInfo;
+
+            // Check is BillingDetail object is of Type BankAccount
+            var isBankAccount = billingInfo is BankAccount;
 
             return (TResponseModel)Convert.ChangeType(
                 new TablePerTypeResponseModel

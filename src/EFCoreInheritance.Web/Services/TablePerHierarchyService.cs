@@ -28,6 +28,13 @@ namespace EFCoreInheritance.Web.Services
                 _context.SaveChanges();
             }
 
+            // Get all by Type
+            var all = await _context
+                .Blogs?
+                .OfType<EFBlog>()
+                .ToListAsync(cancellationToken);
+
+            // Get single as parent object, or cast it
             var blog = await _context
                 .Blogs?
                 .FirstOrDefaultAsync(cancellationToken);
