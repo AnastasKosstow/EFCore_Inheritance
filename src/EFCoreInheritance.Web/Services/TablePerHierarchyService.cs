@@ -19,13 +19,7 @@ namespace EFCoreInheritance.Web.Services
         {
             if (!_context.Blogs.Any())
             {
-                Blog blogToAdd = new EFBlog
-                {
-                    Discriminator = BlogType.EF
-                };
-
-                _context.Blogs.Add(blogToAdd);
-                _context.SaveChanges();
+                await AddInitialData();
             }
 
             // Get all by Type
@@ -45,6 +39,18 @@ namespace EFCoreInheritance.Web.Services
                     Result = blog.GetBlogType()
                 }, 
                 typeof(TResponseModel));
+        }
+
+        private Task AddInitialData()
+        {
+            Blog blogToAdd = new EFBlog
+            {
+                Discriminator = BlogType.EF
+            };
+
+            _context.Blogs.Add(blogToAdd);
+            return Task.FromResult(
+                _context.SaveChanges());
         }
     }
 }

@@ -19,18 +19,7 @@ namespace EFCoreInheritance.Web.Services
         {
             if (!_context.Users.Any())
             {
-                _context.Users.Add(new User
-                {
-                    FirstName = "A",
-                    LastName = "K",
-                    BillingInfo = new BankAccount()
-                    {
-                        Number = "9876543210",
-                        Owner = "A/K",
-                        BankName = "theBank",
-                    },
-                });
-                _context.SaveChanges();
+                await AddInitialData();
             }
 
             // Get all by Type
@@ -54,6 +43,22 @@ namespace EFCoreInheritance.Web.Services
                     TypeName = billingInfo.GetType().Name
                 },
                 typeof(TResponseModel));
+        }
+
+        private Task AddInitialData()
+        {
+            _context.Users.Add(new User
+            {
+                FirstName = "A",
+                LastName = "K",
+                BillingInfo = new BankAccount()
+                {
+                    Number = "9876543210",
+                    Owner = "A/K",
+                    BankName = "theBank",
+                },
+            });
+            return Task.FromResult(_context.SaveChanges());
         }
     }
 }
