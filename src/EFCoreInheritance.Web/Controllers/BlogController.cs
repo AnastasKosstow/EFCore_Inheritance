@@ -21,18 +21,18 @@ namespace EFCoreInheritance.Web.Controllers
 
         [HttpGet]
         [Route("TPH")]
-        public async Task<TablePerHierarchyResponseModel> GetTablePerHierarchyExampleResult(
+        public async Task<IResponse> GetTablePerHierarchyExampleResult(
             CancellationToken cancellationToken)
         {
-            return await _tablePerHierarchyService.GetResult<TablePerHierarchyResponseModel>(cancellationToken);
+            return await _tablePerHierarchyService.GetResult(cancellationToken);
         }
 
         [HttpGet]
         [Route("TPT")]
-        public async Task<TablePerTypeResponseModel> GetTablePerTypeExampleResult(
+        public async Task<IResponse> GetTablePerTypeExampleResult(
             CancellationToken cancellationToken)
         {
-            return await _tablePerTypeService.GetResult<TablePerTypeResponseModel>(cancellationToken);
+            return await _tablePerTypeService.GetResult(cancellationToken);
         }
     }
 }

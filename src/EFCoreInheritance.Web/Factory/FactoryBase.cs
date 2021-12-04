@@ -4,14 +4,14 @@ namespace EFCoreInheritance.Web.Factory
 {
     public abstract class FactoryBase
     {
-        protected IDictionary<ResponseObjectType, Func<IResponse>> Responses = CreateResponseObjectMap();
+        protected IDictionary<ResponseObjectType, Func<object[], IResponse>> Responses = CreateResponseObjectMap();
 
-        private static IDictionary<ResponseObjectType, Func<IResponse>> CreateResponseObjectMap()
+        private static IDictionary<ResponseObjectType, Func<object[], IResponse>> CreateResponseObjectMap()
         {
-            return new Dictionary<ResponseObjectType, Func<IResponse>>()
+            return new Dictionary<ResponseObjectType, Func<object[], IResponse>>()
             {
-                { ResponseObjectType.TPH, () => new TablePerHierarchyResponseModel() },
-                { ResponseObjectType.TPT, () => new TablePerTypeResponseModel() },
+                { ResponseObjectType.TPH, responseData => new TablePerHierarchyResponseModel(responseData) },
+                { ResponseObjectType.TPT, responseData => new TablePerTypeResponseModel(responseData) },
             };
         }
     }

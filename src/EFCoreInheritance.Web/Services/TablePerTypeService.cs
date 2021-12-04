@@ -1,6 +1,7 @@
 ﻿using EFCoreInheritance.Persistence.TablePerType;
 using EFCoreInheritance.Persistence.TablePerType.Models;
 using EFCoreInheritance.Web.Factory;
+using EFCoreInheritance.Web.Factory.Utils;
 using EFCoreInheritance.Web.Services.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,42 +12,35 @@ namespace EFCoreInheritance.Web.Services
         private readonly TablePerTypeDbContext _context;
         private readonly IResponseModelFactory _responseModelFactory;
 
-        public TablePerTypeService(TablePerTypeDbContext context)
+        public TablePerTypeService(
+            TablePerTypeDbContext context,
+            IResponseModelFactory responseModelFactory)
         {
             _context = context;
+            _responseModelFactory = responseModelFactory;
         }
 
-        public async Task<TResponseModel> GetResult<TResponseModel>(CancellationToken cancellationToken) 
-            where TResponseModel : class, new()
+        public async Task<IResponse> GetResult(CancellationToken cancellationToken)
         {
             if (!_context.Users.Any())
             {
                 await AddInitialData();
             }
 
-            // Get all by Type
-            var bankAccouns = await _context.Users
-                .OfType<BankAccount>()
-                .ToListAsync(cancellationToken);
+            // To get all by Type: _context.Users.OfType<BankAccount>()
 
-            // Get single as parent object, or cast it
-            var billingInfo = (await _context
+            var bankAccount = (await _context
                 .Users?
                 .FirstOrDefaultAsync(cancellationToken))
-                .BillingInfo;
+                .BillingInfo as BankAccount;
 
-            // Check is BillingDetail object is of Type BankAccount
-            var isBankAccount = billingInfo is BankAccount;
-
-            return (TResponseModel)Convert.ChangeType(
-                new TablePerTypeResponseModel
-                {
-                    Info = billingInfo,
-                    TypeName = billingInfo.GetType().Name
-                },
-                typeof(TResponseModel));
+            return _responseModelFactory.CreateResponseObject
+                (ResponseObjectType.TPT, 
+                bankAccount.BankName, 
+                bankAccount.GetType().Name);
         }
 
+        #region InitialData
         private Task AddInitialData()
         {
             _context.Users.Add(new User
@@ -62,5 +56,6 @@ namespace EFCoreInheritance.Web.Services
             });
             return Task.FromResult(_context.SaveChanges());
         }
+        #endregion
     }
 }

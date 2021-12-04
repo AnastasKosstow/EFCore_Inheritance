@@ -2,7 +2,6 @@
 {
     public interface IService
     {
-        Task<TResponseModel> GetResult<TResponseModel>(CancellationToken cancellationToken)
-             where TResponseModel : class, new();
+        Task<IResponse> GetResult(CancellationToken cancellationToken);
     }
 }
